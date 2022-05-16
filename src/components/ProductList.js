@@ -10,7 +10,7 @@ const ProductList =()=>{
         setProducts(result)
     }
     const deleteProduct= async (id)=>{
-        let result = fetch(`https://e-commerse-chandra.herokuapp.com/${id}`,{
+        let result = fetch(`https://e-commerse-chandra.herokuapp.com/product/${id}`,{
             method:"Delete"
         });
         result = (await result).json
