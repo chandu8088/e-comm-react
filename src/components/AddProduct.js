@@ -7,6 +7,7 @@ const AddProduct = ()=>{
     const [company,setCompany]=useState("");
     const [error,setError] = useState(false);
     const addProduct=async()=>{
+        console.log(name)
         if(!name || !price || !category || !company){
             setError(true)
             return false;
