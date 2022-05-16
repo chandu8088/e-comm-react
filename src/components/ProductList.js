@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 const ProductList =()=>{
     const [products,setProducts] = useState([]);
     useEffect(()=>{
@@ -19,9 +20,23 @@ const ProductList =()=>{
         }
     }
     //console.log(products)
+    const searchHandle = async(event)=>{
+        let key = event.target.value;
+        if(key){
+            let result = await fetch(`https://e-commerse-chandra.herokuapp.com/search/${key}`);
+        result =await result.json();
+        if(result){
+            setProducts(result)
+        }
+        }
+        else{
+            getProducts();
+        }
+    }
     return(
         <div className="product-list">
             <h1>Product List</h1>
+            <input type="text" placeholder="search product" className="search-product" onChange={searchHandle}/>
             <ul>
                 <li>S. no</li>
                 <li>Name</li>
@@ -30,15 +45,17 @@ const ProductList =()=>{
                 <li>Operation</li>
             </ul>
             {
-                products.map((item,index)=>
+               products.length>0? products.map((item,index)=>
                     <ul key={item._id}>
                         <li>{index}</li>
                         <li>{item.name}</li>
                         <li>$ {item.price}</li>
                         <li>{item.category}</li>
-                        <li><button onClick={()=>deleteProduct(item._id)}>delete</button></li>
+                        <li><button onClick={()=>deleteProduct(item._id)}>delete</button>
+                        <Link to={"/update/"+item._id}>Update</Link>
+                        </li>
                     </ul>
-                )
+                ):<h1>No result</h1>
             }
         </div>
     )
