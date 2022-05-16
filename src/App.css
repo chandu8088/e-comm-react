@@ -1,12 +1,80 @@
-.App {
+.nav-ul li{
+  display: inline-block;
+  padding: 10px;
+}
+.nav-ul li :hover{
+  color: black;
+}
+/* .nav-ul li :active{
+  color: blue;
+} */
+.nav-ul li a{
+  color: #fff;
+  padding: 5px;
+  text-decoration: none;
+}
+.nav-ul{
+  padding: 5px;
+  margin: 0px;
+  background-color: skyblue;
+}
+.footer{
+  position:absolute;
+  bottom: 0;
+  background-color: skyblue;
   text-align: center;
+  width: 100%;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.inputBox{
+  display: block;
+  margin:25px;
+  padding: 7px;
+  width: 300px;
+  border: 1px solid skyblue;
 }
-
+.nav-right{
+  text-align: right;
+}
+.logo{
+  width:45px;
+  border-radius: 50%;
+  float: left;
+  margin-top: 3px;
+  margin-left: 20px;
+}
+.register, .product{
+  margin-left: 30%;
+}
+.register-button,.product-button{
+  margin: 25px;
+  padding: 10px;
+  width: 150px;
+  background-color: skyblue;
+  cursor: pointer;
+}
+.invalid-input{
+  color:red;
+  margin-top: -20px;
+  display: block;
+  margin-left: 20px;
+}
+.product-list{
+  text-align: center;
+  margin-top: 50px;
+}
+.product-list ul li{
+  display: inline-block;
+  border: 1px solid skyblue;
+  padding: 5px;
+  width: 150px;
+}
+.product-list ul{
+  margin: 0;
+}
+.login{
+  margin-left: 30%;
+  margin-top: 100px;
+}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
